@@ -1,4 +1,6 @@
-alfredapp
+Extensions and themes for Alfred v2
 =========
 
-AlfredApp extensions and themes
+
+### Monokai Theme
+![Monokai Screenshot](https://raw.github.com/fniephaus/alfredapp/master/Monokai_screenshot.png)
