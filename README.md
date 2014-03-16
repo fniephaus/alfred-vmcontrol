@@ -1,4 +1,4 @@
-Extensions and themes for Alfred v2
+Workflows and themes for Alfred v2
 =========
 
 ### VM-Control
