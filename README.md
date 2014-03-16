@@ -11,7 +11,7 @@ Extensions and themes for Alfred v2
 ### Travis CI for Alfred
 - Quickly check build statuses on travis-ci.org
 
-![Travis CI for Alfred Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Travis-CI.png)
+![Travis CI for Alfred Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Travis-CI.gif)
 
 
 ### Fabric for Alfred
