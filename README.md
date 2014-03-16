@@ -8,6 +8,13 @@ Extensions and themes for Alfred v2
 ![VM-Control Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/VM-Control.png)
 
 
+### Fabric
+- Quickly execute Fabric tasks
+- Requires [Fabric](http://fabfile.org) to be installed and configured
+
+![Fabric Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Fabric.png)
+
+
 ### Network Tools
 - Supports **ping**, **nslookup** and **traceroute** as well as DNS **flush**
 
