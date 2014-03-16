@@ -1,10 +1,11 @@
 Extensions and themes for Alfred v2
 =========
 
-### Parallels Desktop 9 for Mac
+### VM-Control
 - Easily control your virtual machines
+- Compatible with Parallels Desktop 9 for Mac and VirtualBox 4
 
-![Parallels Desktop 9 for Mac Screenshot](https://raw.github.com/fniephaus/alfred2/master/Parallels-Desktop-9_screenshot.png)
+![VM-Control Screenshot](https://raw.github.com/fniephaus/alfred2/master/VM-Control_screenshot.png)
 
 
 ### Network Tools
