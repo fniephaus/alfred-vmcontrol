@@ -5,7 +5,7 @@ Extensions and themes for Alfred v2
 - Easily control your virtual machines
 - Compatible with Parallels Desktop 9 for Mac and VirtualBox 4
 
-![VM-Control Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/VM-Control.png)
+![VM-Control Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/VM-Control.gif)
 
 
 ### Travis CI for Alfred
