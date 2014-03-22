@@ -8,6 +8,12 @@ Workflows and themes for Alfred v2
 ![VM-Control Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/VM-Control.gif)
 
 
+### Atom Package Manager for Alfred
+- This workflow provides shortcuts to Atom extension folders
+
+![Atom Package Manager for Alfred Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Atom-Package-Manager.gif)
+
+
 ### Travis CI for Alfred
 - Quickly check build statuses on travis-ci.org
 
