@@ -2,7 +2,7 @@ VMControl for Alfred
 =========
 
 - Easily control your virtual machines
-- Compatible with [Parallels Desktop 9 for Mac](http://www.parallels.com/products/desktop/) and [VirtualBox](virtualbox.org) 4
+- Compatible with [Parallels Desktop 9 for Mac](http://www.parallels.com/products/desktop/) and [VirtualBox 4](virtualbox.org)
 
 ![VM-Control Screenshot](https://raw.github.com/fniephaus/alfred-vmcontrol/master/screenshot.gif)
 
