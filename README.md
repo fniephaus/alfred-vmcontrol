@@ -1,37 +1,19 @@
-Workflows and themes for Alfred v2
+VMControl for Alfred
 =========
 
-### VM-Control
 - Easily control your virtual machines
-- Compatible with Parallels Desktop 9 for Mac and VirtualBox 4
+- Compatible with [Parallels Desktop 9 for Mac](http://www.parallels.com/products/desktop/) and [VirtualBox](virtualbox.org) 4
 
-![VM-Control Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/VM-Control.gif)
-
-
-### Atom Package Manager for Alfred
-- This workflow provides shortcuts to Atom extension folders
-
-![Atom Package Manager for Alfred Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Atom-Package-Manager.gif)
+![VM-Control Screenshot](https://raw.github.com/fniephaus/alfred-vmcontrol/master/screenshot.gif)
 
 
-### Travis CI for Alfred
-- Quickly check build statuses on travis-ci.org
+## Copyright and License
 
-![Travis CI for Alfred Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Travis-CI.gif)
+Copyright (c) 2014 Fabio Niephaus - Released under the [MIT license](https://raw.github.com/fniephaus/alfred-vmcontrol/master/LICENSE).
 
-
-### Fabric for Alfred
-- Quickly execute Fabric tasks
-- Requires [Fabric](http://fabfile.org) to be installed and configured
-
-![Fabric for Alfred Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Fabric.png)
+#### VirtualBox icon
+Oracle Corporation has released this image under GPLv2 license. A copy of license agreement can be found [here](https://www.virtualbox.org/browser/vbox/trunk/COPYING).
 
 
-### Network Tools
-- Supports **ping**, **nslookup** and **traceroute** as well as DNS **flush**
-
-![Network-Tools Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Network-Tools.png)
-
-
-### Monokai Theme
-![Monokai Screenshot](https://raw.github.com/fniephaus/alfred2/master/screenshots/Monokai.png)
+#### Parallels icon
+The Parallels Desktop logo is a trademark of [Parallels Holdings, Ltd](http://www.parallels.com/) and is used in this project under a claim of fair use.
