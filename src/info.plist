@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.fniephaus.vmcontrol</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>D9C97FA4-50C0-4D34-9C88-37DF39EAA1A6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>879A8192-F648-4E26-B4B5-71676C669A5C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>451C4EB8-F739-4022-9ADF-8E05EADF6B98</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Fabio Niephaus</string>
+	<key>description</key>
+	<string>Control your Parallels and Virtual Box virtual machines</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>VM Control</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python vm_control.py "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>879A8192-F648-4E26-B4B5-71676C669A5C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>vm</string>
+				<key>runningsubtext</key>
+				<string>Listing your virtual machines...</string>
+				<key>script</key>
+				<string>python vm_list.py "{query}"
+</string>
+				<key>subtext</key>
+				<string>Control your Parallels and Virtual Box virtual machines</string>
+				<key>title</key>
+				<string>VM Control</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D9C97FA4-50C0-4D34-9C88-37DF39EAA1A6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>if the character 1 of "{query}" is not "\"" then	activate application "Parallels Desktop"end if</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>451C4EB8-F739-4022-9ADF-8E05EADF6B98</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>451C4EB8-F739-4022-9ADF-8E05EADF6B98</key>
+		<dict>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+		<key>879A8192-F648-4E26-B4B5-71676C669A5C</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>D9C97FA4-50C0-4D34-9C88-37DF39EAA1A6</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/fniephaus/alfred2/</string>
+</dict>
+</plist>
