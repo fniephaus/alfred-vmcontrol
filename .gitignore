@@ -34,6 +34,3 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-src/icon.png
-src/parallels.png
-src/virtualbox.png

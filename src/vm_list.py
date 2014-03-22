@@ -36,59 +36,59 @@ def complete(wf):
             if vm_details.state == "stopped":
                 wf.add_item(
                     'Start', arg='start ' + vm_name,
-                    uid=vm_name, valid=True)
+                    uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
 
             elif vm_details.state == "paused":
                 for action in ['Resume', 'Stop', 'Pause', 'Reset', 'Suspend']:
                     wf.add_item(
                         action, arg=action.lower() + ' ' + vm_name,
-                        uid=vm_name, valid=True)
+                        uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
 
             elif vm_details.state == "suspended":
                 for action in ['Resume']:
                     wf.add_item(
                         action, arg=action.lower() + ' ' + vm_name,
-                        uid=vm_name, valid=True)
+                        uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
 
             elif vm_details.state == "running":
                 for action in ['Stop', 'Pause', 'Reset', 'Suspend', 'Restart']:
                     wf.add_item(
                         action, arg=action.lower() + ' ' + vm_name,
-                        uid=vm_name, valid=True)
+                        uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
 
                 filename = "Screenshot\ " + \
                     strftime("%Y-%m-%d\ %H.%M.%S\ %p", gmtime()) + ".png"
                 wf.add_item(
                     "Capture screenshot", "Saves a screenshot to Desktop", arg='capture ' + vm_name + ' --file ~/Desktop/' + filename,
-                    uid=vm_name, valid=True)
+                    uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
 
             # Virtual Box
             elif vm_details.state in ["PoweredOff", "Saved"]:
                 wf.add_item(
                     'Start', arg=vm_name + ' start',
-                    uid=vm_name, valid=True, icon=vm_details.type)
+                    uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
 
             elif vm_details.state == "Paused":
                 for action in ['Resume', 'PowerOff', 'SaveState']:
                     wf.add_item(
                         action, arg=vm_name + ' ' + action.lower(),
-                        uid=vm_name, valid=True, icon=vm_details.type)
+                        uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
 
             elif vm_details.state == "Running":
                 for action in ['PowerOff', 'Pause', 'Reset', 'SaveState', 'ACPIPowerButton', 'ACPISleepButton']:
                     wf.add_item(
                         action, arg=vm_name + ' ' + action.lower(),
-                        uid=vm_name, valid=True, icon=vm_details.type)
+                        uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
 
                 filename = "Screenshot\ " + \
                     strftime("%Y-%m-%d\ %H.%M.%S\ %p", gmtime()) + ".png"
                 wf.add_item(
                     "Capture screenshot", "Saves a screenshot to Desktop", arg=vm_name + ' screenshotpng ~/Desktop/' + filename,
-                    uid=vm_name, valid=True, icon=vm_details.type)
+                    uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
     else:
         for vm in vm_list:
             wf.add_item(vm.name, vm.state, uid=vm.id,
-                        autocomplete=vm.name, valid=False, icon=vm.type)
+                        autocomplete=vm.name, valid=False, icon=vm.type, icontype='fileicon')
 
     wf.send_feedback()
 
@@ -102,12 +102,13 @@ def get_vm_list():
             status = vm_details[1]
             vm_id = vm_details[0]
             name = ' '.join(vm_details[3:])
-            output.append(VMDetails(name, vm_id, status, 'parallels.png'))
+            output.append(
+                VMDetails(name, vm_id, status, '/Applications/Parallels Desktop.app'))
 
     if vbox_available:
         for m in mgr.getArray(vbox, 'machines'):
             output.append(VMDetails(
-                m.name, m.id, get_vm_state(m.state), 'virtualbox.png'))
+                m.name, m.id, get_vm_state(m.state), '/Applications/VirtualBox.app'))
 
     return output
 
