@@ -91,7 +91,7 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
-				<string>if the character 1 of "{query}" is not "\"" then	activate application "Parallels Desktop"end if</string>
+				<string>if (characters 1 through 6 of "{query}" as string) is in {"start ", "resume"} then	activate application "Parallels Desktop"end if</string>
 				<key>type</key>
 				<integer>6</integer>
 			</dict>
