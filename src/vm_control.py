@@ -12,12 +12,17 @@ def execute(wf):
             # Virtual Box
             command = query.split('"')[2].split(' ')[1]
             if query[-5:] == "start":
-                os.system('VBoxManage startvm %s &' % query[:-6])
+                os.popen('VBoxManage startvm %s' % query[:-6])
             elif command in ['poweroff', 'pause', 'reset', 'suspend', 'savestate', 'acpipowerbutton', 'acpisleepbutton', 'screenshotpng']:
-                os.system('VBoxManage controlvm %s &' % query)
-        elif len(query.split(' ')) > 1:
+                if command in ['poweroff', 'reset', 'suspend']:
+                    wf.clear_cache()
+                os.popen('VBoxManage controlvm %s' % query)
+        elif len(query.split()) > 1:
             # Parallels
-            os.system('prlctl %s &' % query)
+            command = query.split()[0]
+            if command in ['stop', 'reset', 'suspend']:
+                wf.clear_cache()
+            os.popen('prlctl %s' % query)
 
 
 if __name__ == '__main__':

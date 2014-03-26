@@ -1,5 +1,6 @@
 import commands
 import sys
+import os
 from time import gmtime, strftime
 from collections import namedtuple
 from workflow import Workflow
@@ -18,8 +19,11 @@ except ImportError:
 
 VMDetails = namedtuple('VMDetails', ['name', 'id', 'state', 'type'])
 
+currentVM = None
+
 
 def complete(wf):
+    global currentVM
     vm_name = ' '.join(wf.args)
 
     vm_list = get_vm_list()
@@ -87,8 +91,15 @@ def complete(wf):
                     uid=vm_name, valid=True, icon=vm_details.type, icontype='fileicon')
     else:
         for vm in vm_list:
-            wf.add_item(vm.name, vm.state, uid=vm.id,
-                        autocomplete=vm.name, valid=False, icon=vm.type, icontype='fileicon')
+            if vm.state.lower() == "running":
+                currentVM = vm
+                icon = wf.cached_data(
+                    'vm_%s' % hash(vm.name), data_func=get_vm_screenshot, max_age=60)
+                wf.add_item(vm.name, vm.state, uid=vm.id,
+                            autocomplete=vm.name, valid=False, icon=icon)
+            else:
+                wf.add_item(vm.name, vm.state, uid=vm.id,
+                            autocomplete=vm.name, valid=False, icon=vm.type, icontype='fileicon')
 
     wf.send_feedback()
 
@@ -118,6 +129,21 @@ def get_vm_state(state_const):
         if constant == state_const:
             return state
     return None
+
+
+def get_vm_screenshot():
+    global currentVM
+    if currentVM is None:
+        return ''
+    icon = '%s/%s.png' % (wf.cachedir, hash(currentVM.name))
+    if 'Parallels' in currentVM.type:
+        os.popen("""prlctl capture "%s" --file "%s" """ %
+                 (currentVM.name, icon))
+    else:
+        os.popen("""VBoxManage controlvm "%s" screenshotpng "%s" """ %
+                 (currentVM.name, icon))
+
+    return icon
 
 if __name__ == '__main__':
     wf = Workflow()
