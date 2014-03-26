@@ -1,7 +1,6 @@
 import sys
 import os
-import subprocess
-import commands
+import time
 from workflow import Workflow
 
 
@@ -23,6 +22,17 @@ def execute(wf):
             if command in ['stop', 'reset', 'suspend']:
                 wf.clear_cache()
             os.popen('prlctl %s' % query)
+
+            if command in ['start', 'resume']:
+                os.popen(
+                    """ osascript -e 'activate application "Parallels Desktop"' """)
+                return
+
+            # wait and then quit Parallels if possible
+            time.sleep(2)
+            if len(os.popen('prlctl list --no-header').readlines()) == 0:
+                os.popen(
+                    """ osascript -e 'tell application "Parallels Desktop" to quit' """)
 
 
 if __name__ == '__main__':
