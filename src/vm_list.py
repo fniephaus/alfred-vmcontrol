@@ -4,8 +4,6 @@ from time import gmtime, strftime
 from collections import namedtuple
 from workflow import Workflow
 
-parallels_available = os.popen('which prlctl').readline().rstrip()
-
 try:
     from vboxapi import VirtualBoxManager
     from vboxapi.VirtualBox_constants import VirtualBoxReflectionInfo
@@ -99,8 +97,8 @@ def complete(wf):
 def get_vm_list():
     output = []
 
-    if parallels_available:
-        for line in os.popen('prlctl list -a --no-header').readlines():
+    if os.path.isfile('/usr/local/bin/prlctl'):
+        for line in os.popen('/usr/local/bin/prlctl list -a --no-header').readlines():
             vm_details = line.split()
             status = vm_details[1]
             vm_id = vm_details[0]
