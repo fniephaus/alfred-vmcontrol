@@ -21,16 +21,16 @@ def execute(wf):
             command = query.split()[0]
             if command in ['stop', 'reset', 'suspend']:
                 wf.clear_cache()
-            os.popen('prlctl %s' % query)
+            os.popen('/usr/local/bin/prlctl %s' % query)
 
             if command in ['start', 'resume']:
                 os.popen(
-                    """ osascript -e 'activate application "Parallels Desktop"' """)
+                    """ osascript -e 'activate application "/Applications/Parallels Desktop.app"' """)
                 return
 
             # wait and then quit Parallels if possible
             time.sleep(2)
-            if len(os.popen('prlctl list --no-header').readlines()) == 0:
+            if len(os.popen('/usr/local/bin/prlctl list --no-header').readlines()) == 0:
                 os.popen(
                     """ osascript -e 'tell application "Parallels Desktop" to quit' """)
 

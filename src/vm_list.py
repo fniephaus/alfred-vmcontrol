@@ -127,7 +127,7 @@ def get_vm_screenshot():
         return ''
     icon = '%s/%s.png' % (wf.cachedir, hash(currentVM.name))
     if 'Parallels' in currentVM.type:
-        os.popen("""prlctl capture "%s" --file "%s" """ %
+        os.popen("""/usr/local/bin/prlctl capture "%s" --file "%s" """ %
                  (currentVM.name, icon))
     else:
         os.popen("""VBoxManage controlvm "%s" screenshotpng "%s" """ %
