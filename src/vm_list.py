@@ -108,6 +108,18 @@ def get_vm_list():
 
     if vbox_available:
         for m in mgr.getArray(vbox, 'machines'):
+            vmname = '<inaccessible>'
+            try:
+                vmname = m.name
+            except Exception, e:
+                None
+            vmid = '';
+            try:
+                vmid = m.id
+            except Exception, e:
+                None
+            if vmname == '<inaccessible>' or vmid == '':
+                continue
             output.append(VMDetails(
                 m.name, m.id, get_vm_state(m.state), '/Applications/VirtualBox.app'))
 
