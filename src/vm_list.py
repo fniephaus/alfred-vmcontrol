@@ -8,7 +8,10 @@ try:
     from vboxapi import VirtualBoxManager
     from vboxapi.VirtualBox_constants import VirtualBoxReflectionInfo
     mgr = VirtualBoxManager(None, None)
-    vbox = mgr.vbox
+    try:
+        vbox = mgr.getVirtualBox()
+    except:
+        raise
     constants = VirtualBoxReflectionInfo(False)
     vbox_available = True
 except ImportError:
